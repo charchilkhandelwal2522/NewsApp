@@ -13,7 +13,8 @@ export default class News extends Component {
       category: "",
       searchedCategory: "general",
       loading: false,
-      page: 1
+      page: 1,
+      totalResults: 0
     }
   }
 
@@ -21,21 +22,26 @@ export default class News extends Component {
     this.fetchNews("general");
   }
 
-  fetchNews = async (category) => {
+  fetchNews = async (category, page = 1) => {
     this.setState({ loading: true });
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${this.apiKey}`;
+    // https://newsapi.org/v2/top-headlines?country=us&apiKey=a56c5a710d3f48469b4e5511c5a514c5&page=2
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&page=${page}&pageSize=9&apiKey=${this.apiKey}`;
     let data = await fetch(url);
     let parseData = await data.json();
     this.setState({
       articles: parseData.articles || [],
+      page,
+      totalResults: parseData.totalResults,
       searchedCategory: category,
-      loading: false,
-      page: 1
+      loading: false
     });
   }
 
   handlePageChange = (page) => {
-    this.setState({ page });
+    this.fetchNews(
+      this.state.searchedCategory,
+      page
+    );
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -53,10 +59,8 @@ export default class News extends Component {
 
   render() {
     const { t } = this.props
-    const { articles, page, loading } = this.state;
-    const pageCount = Math.ceil(articles.length / this.pageSize);
-    const startIndex = (page - 1) * this.pageSize;
-    const currentArticles = articles.slice(startIndex, startIndex + this.pageSize);
+    const { articles, page, loading, totalResults } = this.state;
+    const pageCount = Math.ceil(totalResults / this.pageSize);
 
     return (
       <div className='container my-3'>
@@ -87,7 +91,7 @@ export default class News extends Component {
         ) : (
           <>
             <div className='row'>
-              {currentArticles.map((element) => {
+              {articles.map((element) => {
                 return <div className='col-md-4 mb-4 d-flex' key={element.url}>
                   <NewsItem
                     title={element.title}

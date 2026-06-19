@@ -3,10 +3,13 @@ import React, { Component } from 'react'
 export default class NewsItem extends Component {
   render() {
     let {title, description, imgUrl, newsUrl, t} = this.props
+
+    const defaultImage = "/assets/download.jpg";
+
     return (
         <div className="card h-100 d-flex flex-column">
             <img
-              src={imgUrl}
+              src={imgUrl || defaultImage}
               className="card-img-top"
               alt="..."
               style={{ height: "200px", objectFit: "cover" }}
