@@ -80,7 +80,7 @@ export default class News extends Component {
     const pageCount = Math.ceil(totalResults / this.pageSize);
 
     return (
-      <div className='container my-3'>
+      <div className='container my-3 min-vh-100'>
         <h2 className='text-center my-3'>{t('news.heading')}</h2>
         <form className="row justify-content-center mb-4" onSubmit={this.handleSearch}>
           <div className="col-md-6">
