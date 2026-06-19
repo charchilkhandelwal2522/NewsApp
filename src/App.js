@@ -38,6 +38,12 @@ export default class App extends Component {
         />
         <Routes>
           <Route path="/" element={<News t={this.t} />} />
+          <Route path="/technology" element={<News key="technology" category="technology" t={this.t} />} />
+          <Route path="/sports" element={<News key="sports" category="sports" t={this.t} />} />
+          <Route path="/business" element={<News key="business" category="business" t={this.t} />} />
+          <Route path="/entertainment" element={<News key="entertainment" category="entertainment" t={this.t} />} />
+          <Route path="/health" element={<News key="health" category="health" t={this.t} />} />
+          <Route path="/science" element={<News key="science" category="science" t={this.t} />} />
           <Route path="/about" element={<About t={this.t} />} />
         </Routes>
         <Footer t={this.t} />
