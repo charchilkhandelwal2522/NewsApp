@@ -2,9 +2,17 @@ import React, { Component } from 'react'
 
 export default class NewsItem extends Component {
   render() {
-    let {title, description, imgUrl, newsUrl, t} = this.props
+    let {title, description, imgUrl, newsUrl, author, date, t} = this.props
 
     const defaultImage = "/assets/download.jpg";
+
+    const formattedDate = new Date(date).toLocaleString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
 
     return (
         <div className="card h-100 d-flex flex-column">
@@ -19,6 +27,7 @@ export default class NewsItem extends Component {
             <p className="card-text flex-grow-1">
               {description ? (description.length > 120 ? description.slice(0, 120) + "..." : description) : ""}
             </p>
+            <p>By {author || 'Unknown'} on {formattedDate}</p>
             <a href={newsUrl} target="_blank" rel="noreferrer" className="btn btn-primary mt-auto align-self-start">{t('news.readMore')}</a>
             </div>
         </div>
