@@ -45,7 +45,10 @@
   "footer.quickLinks": "त्वरित लिंक",
   "footer.categories": "श्रेणियां",
   "footer.rights": "सर्वाधिकार सुरक्षित।",
-  "category.sports": "स्पोर्ट्स",
-  "category.business": "बिजनेस",
-  "category.technology": "टेक्नोलॉजी"
+  "category.technology": "प्रौद्योगिकी",
+  "category.sports": "खेल",
+  "category.business": "व्यापार",
+  "category.entertainment": "मनोरंजन",
+  "category.health": "स्वास्थ्य",
+  "category.science": "विज्ञान"
 }

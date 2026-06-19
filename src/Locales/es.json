@@ -45,7 +45,10 @@
   "footer.quickLinks": "Enlaces rápidos",
   "footer.categories": "Categorías",
   "footer.rights": "Todos los derechos reservados.",
-  "category.sports": "Deportes",
-  "category.business": "Negocios",
-  "category.technology": "Tecnología"
+  "categoría.tecnología": "Tecnología",
+  "categoría.deportes": "Deportes",
+  "categoría.negocios": "Negocios",
+  "categoría.entretenimiento": "Entretenimiento",
+  "categoría.salud": "Salud",
+  "categoría.ciencia": "Ciencia"
 }
