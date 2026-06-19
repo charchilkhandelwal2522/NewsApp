@@ -17,7 +17,22 @@ export default class Navbar extends Component {
                 <NavLink className="nav-link" to="/" end>{t('nav.home')}</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/about">{t('nav.about')}</NavLink>
+                <NavLink className="nav-link" to="/technology">{t('nav.technology')}</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/sports">{t('nav.sports')}</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/business">{t('nav.business')}</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/entertainment">{t('nav.entertainment')}</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/health">{t('nav.health')}</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/science">{t('nav.science')}</NavLink>
               </li>
             </ul>
             <select
