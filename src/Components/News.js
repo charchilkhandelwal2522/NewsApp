@@ -4,6 +4,8 @@ import NewsItem from './NewsItem'
 export default class News extends Component {
 
   apiKey = "a56c5a710d3f48469b4e5511c5a514c5"
+  apikey = process.env.REACT_APP_API_KEY;
+  
   pageSize = 9
 
   constructor(props) {
