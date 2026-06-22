@@ -34,6 +34,9 @@ export default class Navbar extends Component {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/science">{t('nav.science')}</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/about">{t('nav.about')}</NavLink>
+              </li>
             </ul>
             <div className="d-flex align-items-center gap-2">
               <button

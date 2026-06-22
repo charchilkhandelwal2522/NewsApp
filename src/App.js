@@ -11,6 +11,7 @@ import es from './Locales/es.json'
 const translations = { en, hi, es }
 
 const DARK_MODE_KEY = 'newsapp-dark-mode'
+// const DARK_MODE_KEY = process.env.REACT_APP_DARK_MODE_KEY
 
 export default class App extends Component {
   constructor() {
