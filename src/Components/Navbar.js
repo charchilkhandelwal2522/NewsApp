@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 export default class Navbar extends Component {
   render() {
-    const { t, language, onLanguageChange } = this.props
+    const { t, language, darkMode, onLanguageChange, onDarkModeToggle } = this.props
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
@@ -35,16 +35,27 @@ export default class Navbar extends Component {
                 <NavLink className="nav-link" to="/science">{t('nav.science')}</NavLink>
               </li>
             </ul>
-            <select
-              className="form-select form-select-sm w-auto bg-dark text-light border-secondary"
-              value={language}
-              onChange={(e) => onLanguageChange(e.target.value)}
-              aria-label={t('nav.selectLanguage')}
-            >
-              <option value="en">{t('lang.en')}</option>
-              <option value="hi">{t('lang.hi')}</option>
-              <option value="es">{t('lang.es')}</option>
-            </select>
+            <div className="d-flex align-items-center gap-2">
+              <button
+                type="button"
+                className="btn btn-outline-light btn-sm"
+                onClick={onDarkModeToggle}
+                aria-label={darkMode ? t('nav.lightMode') : t('nav.darkMode')}
+                title={darkMode ? t('nav.lightMode') : t('nav.darkMode')}
+              >
+                {darkMode ? '☀️' : '🌙'}
+              </button>
+              <select
+                className="form-select form-select-sm w-auto bg-dark text-light border-secondary"
+                value={language}
+                onChange={(e) => onLanguageChange(e.target.value)}
+                aria-label={t('nav.selectLanguage')}
+              >
+                <option value="en">{t('lang.en')}</option>
+                <option value="hi">{t('lang.hi')}</option>
+                <option value="es">{t('lang.es')}</option>
+              </select>
+            </div>
           </div>
         </div>
       </nav>

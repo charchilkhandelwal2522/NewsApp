@@ -11,6 +11,8 @@
   "nav.science": "Science",
   "nav.about": "About",
   "nav.selectLanguage": "Select language",
+  "nav.darkMode": "Switch to dark mode",
+  "nav.lightMode": "Switch to light mode",
   "news.heading": "News - Top Headlines",
   "news.searchPlaceholder": "Search category e.g. sports, business, technology",
   "news.searchAria": "Search category",

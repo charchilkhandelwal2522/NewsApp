@@ -10,12 +10,36 @@ import es from './Locales/es.json'
 
 const translations = { en, hi, es }
 
+const DARK_MODE_KEY = 'newsapp-dark-mode'
+
 export default class App extends Component {
   constructor() {
     super()
     this.state = {
-      language: 'en'
+      language: 'en',
+      darkMode: localStorage.getItem(DARK_MODE_KEY) === 'true'
     }
+  }
+
+  componentDidMount() {
+    this.applyDarkMode(this.state.darkMode)
+  }
+
+  applyDarkMode = (darkMode) => {
+    document.documentElement.classList.toggle('dark-mode', darkMode)
+    const themeMeta = document.querySelector('meta[name="theme-color"]')
+    if (themeMeta) {
+      themeMeta.setAttribute('content', darkMode ? '#121212' : '#ffffff')
+    }
+  }
+
+  handleDarkModeToggle = () => {
+    this.setState((prev) => {
+      const darkMode = !prev.darkMode
+      localStorage.setItem(DARK_MODE_KEY, darkMode)
+      this.applyDarkMode(darkMode)
+      return { darkMode }
+    })
   }
 
   handleLanguageChange = (language) => {
@@ -28,13 +52,15 @@ export default class App extends Component {
   }
 
   render() {
-    const { language } = this.state
+    const { language, darkMode } = this.state
     return (
       <Router>
         <Navbar
           t={this.t}
           language={language}
+          darkMode={darkMode}
           onLanguageChange={this.handleLanguageChange}
+          onDarkModeToggle={this.handleDarkModeToggle}
         />
         <Routes>
           <Route path="/" element={<News t={this.t} />} />
