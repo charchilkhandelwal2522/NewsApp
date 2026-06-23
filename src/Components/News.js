@@ -6,9 +6,6 @@ const MAX_API_RESULTS = 1000
 
 export default class News extends Component {
 
-  apiKey = "a56c5a710d3f48469b4e5511c5a514c5"
-  // apikey = process.env.REACT_APP_API_KEY;
-
   pageSize = 9
 
   constructor(props) {
@@ -66,7 +63,7 @@ export default class News extends Component {
 
     try {
       this.props.setProgress(0);
-      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&page=${page}&pageSize=${this.pageSize}&apiKey=${this.apiKey}`;
+      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&page=${page}&pageSize=${this.pageSize}&apiKey=${this.props.apiKey}`;
       const response = await fetch(url);
       this.props.setProgress(30);
       const parseData = await response.json();
@@ -168,6 +165,7 @@ export default class News extends Component {
                     newsUrl={element.url}
                     author={element.author}
                     date={element.publishedAt}
+                    source={element.source.name}
                     t={t}
                   />
                 </div>
