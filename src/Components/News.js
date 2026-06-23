@@ -28,8 +28,29 @@ export default class News extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.category !== this.props.category) {
       const category = this.props.category || 'general';
+      this.setState({ searchedCategory: category, searchCategory: '' });
       this.fetchNews(category);
     }
+  }
+
+  getCategoryLabel = (category) => {
+    const { t } = this.props
+    const categoryKey = `category.${category}`
+    const translated = t(categoryKey)
+    if (translated !== categoryKey) {
+      return translated
+    }
+    return category.charAt(0).toUpperCase() + category.slice(1)
+  }
+
+  getPageHeading = () => {
+    const { t } = this.props
+    const { searchedCategory } = this.state
+    if (searchedCategory === 'general') {
+      return t('news.heading')
+    }
+    const categoryLabel = this.getCategoryLabel(searchedCategory)
+    return t('news.headingFrom').replace('{{category}}', categoryLabel)
   }
 
   fetchNews = async (category, page = 1) => {
@@ -83,7 +104,7 @@ export default class News extends Component {
 
     return (
       <div className='container my-3 min-vh-100'>
-        <h2 className='text-center my-3'>{t('news.heading')}</h2>
+        <h2 className='text-center my-3'>{this.getPageHeading()}</h2>
         <form className="row justify-content-center mb-4" onSubmit={this.handleSearch}>
           <div className="col-md-6">
             <div className="input-group">

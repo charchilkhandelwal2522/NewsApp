@@ -14,6 +14,7 @@
   "nav.darkMode": "Cambiar a modo oscuro",
   "nav.lightMode": "Cambiar a modo claro",
   "news.heading": "Noticias - Titulares principales",
+  "news.headingFrom": "Noticias - Titulares principales de {{category}}",
   "news.searchPlaceholder": "Buscar categoría p. ej. Deportes, Negocios, Tecnología", 
   "news.searchAria": "Buscar categoría",
   "news.searchButton": "Buscar",

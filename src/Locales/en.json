@@ -14,6 +14,7 @@
   "nav.darkMode": "Switch to dark mode",
   "nav.lightMode": "Switch to light mode",
   "news.heading": "News - Top Headlines",
+  "news.headingFrom": "News - Top Headlines from {{category}}",
   "news.searchPlaceholder": "Search category e.g. sports, business, technology",
   "news.searchAria": "Search category",
   "news.searchButton": "Search",

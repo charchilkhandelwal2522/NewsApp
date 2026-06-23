@@ -14,6 +14,7 @@
   "nav.darkMode": "डार्क मोड पर स्विच करें",
   "nav.lightMode": "लाइट मोड पर स्विच करें",
   "news.heading": "समाचार - मुख्य खबरें",
+  "news.headingFrom": "समाचार - {{category}} की मुख्य खबरें",
   "news.searchPlaceholder": "श्रेणी खोजें जैसे खेल, व्यापार, प्रौद्योगिकी",
   "news.searchAria": "श्रेणी खोजें",
   "news.searchButton": "खोजें",
