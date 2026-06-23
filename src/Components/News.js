@@ -65,11 +65,13 @@ export default class News extends Component {
     }
 
     try {
+      this.props.setProgress(0);
       const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&page=${page}&pageSize=${this.pageSize}&apiKey=${this.apiKey}`;
       const response = await fetch(url);
+      this.props.setProgress(30);
       const parseData = await response.json();
+      this.props.setProgress(70);
       const newArticles = parseData.articles || [];
-
       this.setState((prevState) => ({
         articles: append ? [...prevState.articles, ...newArticles] : newArticles,
         page,
@@ -78,6 +80,7 @@ export default class News extends Component {
         loading: false,
         loadingMore: false
       }));
+      this.props.setProgress(100);
     }
     catch (error) {
       console.log(error);
